@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CivicMap | Neighbourhood Infrastructure Mapping</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet Map -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Civic<span>Map</span>
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#dashboard">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="#map-section">Map</a>
+            </li>
+
+            <li>
+                <a href="#infrastructure">Infrastructure</a>
+            </li>
+
+            <li>
+                <a href="#issues">Issues</a>
+            </li>
+
+            <li>
+                <a href="#report">Report</a>
+            </li>
+
+        </ul>
+
+
+        <button id="darkModeBtn" class="theme-btn">
+            🌙
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="subtitle">
+            CIVIC INFRASTRUCTURE PROJECT
+        </p>
+
+
+        <h1>
+
+            Neighbourhood
+
+            <span>
+                Infrastructure Mapping
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Explore, monitor and understand the civic
+            infrastructure available in your neighbourhood.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#map-section"
+                class="button"
+            >
+                🗺️ Explore Map
+            </a>
+
+
+            <a
+                href="#infrastructure"
+                class="button secondary-button"
+            >
+                🏗️ View Infrastructure
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-card">
+
+        <div class="floating-icon">
+            📍
+        </div>
+
+
+        <h2>
+            Smart Civic Mapping
+        </h2>
+
+
+        <p>
+            Roads • Water • Lighting • Waste • Drainage
+        </p>
+
+
+        <div class="hero-mini-stats">
+
+            <div>
+                <strong>24</strong>
+                <small>Facilities</small>
+            </div>
+
+
+            <div>
+                <strong>18</strong>
+                <small>Working</small>
+            </div>
+
+
+            <div>
+                <strong>06</strong>
+                <small>Issues</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section id="dashboard" class="section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            CIVIC DASHBOARD
+        </p>
+
+        <h2>
+            Neighbourhood Overview
+        </h2>
+
+        <p>
+            Quick overview of important civic infrastructure.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-cards">
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🏗️
+            </div>
+
+            <div>
+
+                <h3 class="counter">
+                    24
+                </h3>
+
+                <p>
+                    Total Facilities
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <h3 class="counter">
+                    18
+                </h3>
+
+                <p>
+                    Working Facilities
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                ⚠️
+            </div>
+
+            <div>
+
+                <h3 class="counter">
+                    06
+                </h3>
+
+                <p>
+                    Reported Issues
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                📊
+            </div>
+
+            <div>
+
+                <h3>
+                    75%
+                </h3>
+
+                <p>
+                    Overall Condition
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTERACTIVE MAP
+===================================================== -->
+
+<section id="map-section" class="section map-section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            LOCATION MAPPING
+        </p>
+
+        <h2>
+            Interactive Neighbourhood Map
+        </h2>
+
+        <p>
+            Click on the markers to view civic facilities.
+        </p>
+
+    </div>
+
+
+    <div class="map-wrapper">
+
+        <div id="map"></div>
+
+    </div>
+
+
+    <div class="map-legend">
+
+        <div>
+            🚰 Water Supply
+        </div>
+
+        <div>
+            💡 Street Light
+        </div>
+
+        <div>
+            🗑️ Waste Collection
+        </div>
+
+        <div>
+            🚽 Public Toilet
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFRASTRUCTURE
+===================================================== -->
+
+<section id="infrastructure" class="section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            CIVIC FACILITIES
+        </p>
+
+        <h2>
+            Infrastructure Status
+        </h2>
+
+        <p>
+            Current condition of important neighbourhood facilities.
+        </p>
+
+    </div>
+
+
+
+    <div class="cards">
+
+
+        <!-- ROAD -->
+
+        <div class="card">
+
+            <div class="icon">
+                🛣️
+            </div>
+
+            <h3>
+                Roads
+            </h3>
+
+            <p>
+                Condition of local roads and footpaths.
+            </p>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: 75%"
+                ></div>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span>
+                    Condition
+                </span>
+
+                <strong>
+                    75%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WATER -->
+
+        <div class="card">
+
+            <div class="icon">
+                🚰
+            </div>
+
+            <h3>
+                Water Supply
+            </h3>
+
+            <p>
+                Availability of regular drinking water supply.
+            </p>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: 60%"
+                ></div>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span>
+                    Condition
+                </span>
+
+                <strong>
+                    60%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STREET LIGHT -->
+
+        <div class="card">
+
+            <div class="icon">
+                💡
+            </div>
+
+            <h3>
+                Street Lights
+            </h3>
+
+            <p>
+                Working condition of street lighting.
+            </p>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: 85%"
+                ></div>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span>
+                    Condition
+                </span>
+
+                <strong>
+                    85%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WASTE -->
+
+        <div class="card">
+
+            <div class="icon">
+                🗑️
+            </div>
+
+            <h3>
+                Waste Management
+            </h3>
+
+            <p>
+                Garbage collection and neighbourhood cleanliness.
+            </p>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: 65%"
+                ></div>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span>
+                    Condition
+                </span>
+
+                <strong>
+                    65%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DRAINAGE -->
+
+        <div class="card">
+
+            <div class="icon">
+                🌧️
+            </div>
+
+            <h3>
+                Drainage
+            </h3>
+
+            <p>
+                Storm-water and sewage drainage facilities.
+            </p>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: 45%"
+                ></div>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span>
+                    Condition
+                </span>
+
+                <strong>
+                    45%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TOILET -->
+
+        <div class="card">
+
+            <div class="icon">
+                🚽
+            </div>
+
+            <h3>
+                Public Toilets
+            </h3>
+
+            <p>
+                Availability and cleanliness of public toilets.
+            </p>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: 70%"
+                ></div>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span>
+                    Condition
+                </span>
+
+                <strong>
+                    70%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANALYSIS
+===================================================== -->
+
+<section id="analysis" class="section analysis-section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            DATA ANALYSIS
+        </p>
+
+        <h2>
+            Infrastructure Analysis
+        </h2>
+
+        <p>
+            Visual representation of infrastructure conditions.
+        </p>
+
+    </div>
+
+
+    <div class="chart-container">
+
+        <canvas id="infrastructureChart"></canvas>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ISSUE TRACKER
+===================================================== -->
+
+<section id="issues" class="section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            CIVIC ISSUES
+        </p>
+
+        <h2>
+            Issue Tracker
+        </h2>
+
+        <p>
+            Sample infrastructure complaints reported by citizens.
+        </p>
+
+    </div>
+
+
+    <div class="issue-table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Issue
+                    </th>
+
+                    <th>
+                        Location
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        💡 Broken Street Light
+                    </td>
+
+                    <td>
+                        Main Road
+                    </td>
+
+                    <td>
+                        28 Sep 2026
+                    </td>
+
+                    <td>
+                        <span class="issue-status pending">
+                            Pending
+                        </span>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        🛣️ Road Damage
+                    </td>
+
+                    <td>
+                        Station Road
+                    </td>
+
+                    <td>
+                        26 Sep 2026
+                    </td>
+
+                    <td>
+                        <span class="issue-status progress-status">
+                            In Progress
+                        </span>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        🗑️ Garbage Collection
+                    </td>
+
+                    <td>
+                        Market Area
+                    </td>
+
+                    <td>
+                        24 Sep 2026
+                    </td>
+
+                    <td>
+                        <span class="issue-status resolved">
+                            Resolved
+                        </span>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REPORT ISSUE
+===================================================== -->
+
+<section id="report" class="section report-section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            CITIZEN FEEDBACK
+        </p>
+
+        <h2>
+            Report a Civic Issue
+        </h2>
+
+        <p>
+            Help identify problems in your neighbourhood.
+        </p>
+
+    </div>
+
+
+    <form id="issueForm">
+
+
+        <div class="form-row">
+
+
+            <div>
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+
+            <div>
+
+                <label>
+                    Issue Type
+                </label>
+
+                <select
+                    id="issue"
+                    required
+                >
+
+                    <option value="">
+                        Select Issue
+                    </option>
+
+                    <option>
+                        Road Damage
+                    </option>
+
+                    <option>
+                        Water Supply
+                    </option>
+
+                    <option>
+                        Street Light
+                    </option>
+
+                    <option>
+                        Waste Management
+                    </option>
+
+                    <option>
+                        Drainage
+                    </option>
+
+                    <option>
+                        Public Toilet
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <label>
+            Location
+        </label>
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Enter location"
+            required
+        >
+
+
+
+        <label>
+            Description
+        </label>
+
+        <textarea
+            id="description"
+            rows="5"
+            placeholder="Describe the problem..."
+            required
+        ></textarea>
+
+
+
+        <button
+            type="submit"
+            class="button"
+        >
+            🚨 Submit Report
+        </button>
+
+
+        <p id="message"></p>
+
+    </form>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT PROJECT
+===================================================== -->
+
+<section id="about" class="section about-section">
+
+    <div class="section-heading">
+
+        <p class="subtitle">
+            ABOUT PROJECT
+        </p>
+
+        <h2>
+            Neighbourhood Infrastructure Mapping
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🎯
+            </div>
+
+            <h3>
+                Objective
+            </h3>
+
+            <p>
+                To identify, visualize and analyze civic infrastructure
+                available in a neighbourhood.
+            </p>
+
+        </div>
+
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                💻
+            </div>
+
+            <h3>
+                Technologies
+            </h3>
+
+            <p>
+                HTML, CSS, JavaScript, Leaflet.js and Chart.js
+                are used to develop this project.
+            </p>
+
+        </div>
+
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🌍
+            </div>
+
+            <h3>
+                Project Scope
+            </h3>
+
+            <p>
+                Roads, water supply, street lighting, waste management,
+                drainage and public facilities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>
+            CivicMap
+        </h3>
+
+        <p>
+            Neighbourhood Infrastructure Mapping Project
+        </p>
+
+        <p class="copyright">
+            © 2026 CivicMap. College Project.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT LIBRARIES
+===================================================== -->
+
+<!-- Leaflet -->
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+<!-- Chart.js -->
+<script
+    src="https://cdn.jsdelivr.net/npm/chart.js">
+</script>
+
+
+<!-- Our JavaScript -->
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
